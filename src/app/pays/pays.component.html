@@ -1,0 +1,32 @@
+<div class="container col-md-6">
+    <div class="mb-3" (ngSubmit)="onclick()">
+        <div  class="search-hero">
+            <input class="search-hero" type="text" id="search" name="search" [(ngModel)]="searchText" placeholder="search by Id or pays ">
+        </div>
+    <div class="mb-3">
+        <label for="">add pays</label>
+        <input type="text" class="form-control" id="pays" name="pays" [(ngModel)]="pays.Id">
+      </div>
+      <button type="submit"  class="btn btn-primary">Add</button>
+    </div>
+    </div>
+    <table class="table table-light mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th>paysNo</th>
+                <th>pays</th>
+                <th>region</th>
+                <th>delete pays</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i for payslist | pays: searchText; index as paysNo">
+                <td>{{paysNo+1}}</td>
+                <td>{{i}}</td>
+                <td>{{i.region}}</td>
+                <td>
+                    <button  (click)="delete(paysNo)" class="btn btn-succes">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>

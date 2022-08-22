@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    
+    <button mat-icon-button>
+        <mat-icon (click)="sidenav.toggle();" fontIcon="home">Menu</mat-icon>
+    </button>
+    <span>Qoentum</span>
+    <div class="spacer"></div>
+   <a mat-button [routerLink]="['./home']">home</a> 
+   <button  mat-button (click)="deconnecter()">deconnecter</button>
+  
+
+</mat-toolbar>
+<mat-sidenav-container  color="primary">
+    <mat-sidenav #sidenav opened="false" mod="side">
+        <mat-nav-list class="azer">
+            <a mat-list-item [routerLink]="['./home']">home</a>
+           <!-- <a mat-list-item [routerLink]="['./client']">client</a>-->
+            <a mat-list-item [routerLink]="['./register-user']">add user</a>
+           <!-- <a mat-list-item [routerLink]="['./login-user']">sing up</a>-->
+            <a mat-list-item [routerLink]="['./region']">region</a>
+            <a mat-list-item [routerLink]="['./pays']">pays</a>
+            <a mat-list-item [routerLink]="['./continent']">continent</a>
+            <a mat-list-item>about Us</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="height: 88vh;">
+        <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

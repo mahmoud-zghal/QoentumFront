@@ -1,0 +1,78 @@
+<div class="container col-md-6">
+    <h1>Client</h1>
+    <form >
+        <div class="mb-3">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Id</label>
+                <input  type="text" class="form-control" id="UserId" name="UserId" [(ngModel)]="client.Id">
+              </div>
+            <label for="exampleFormControlInput1" class="form-label">Nom</label>
+            <input  type="text" class="form-control" id="nom" name="nom" [(ngModel)]="client.Nom">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Logo</label>
+            <input   type="text" class="form-control" id="Logo" name="logo" [(ngModel)]="client.Logo">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Adress</label>
+            <input  type="text" class="form-control" id="Adress" name="Adress" [(ngModel)]="client.Adress">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Idproject</label>
+            <input type="number" class="form-control" id="Idproject" name="Idproject" [(ngModel)]="client.Idproject">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Date de debut licence</label>
+            <input  type="date" class="form-control" id="Datedebutlicence" name="Datedebutlicence" [(ngModel)]="client.Datedebutlicence">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Date de fin licence</label>
+            <input  type="date" class="form-control" id="Datefinlicence" name="Datefinlicence" [(ngModel)]="client.Datefinlicence">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Type licence</label>
+            <input  type="EnumTypeLicence" class="form-control" id="Typelicence" name="Typelicence" [(ngModel)]="client.Typelicence">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Regulateur</label>
+            <input  type="text" class="form-control" id="Regulateur" name="Regulateur" [(ngModel)]="client.Regulateur">
+          </div>
+         </form>
+    
+          <button (click)="addItem()" class="btn btn-primary">Add</button>
+</div>
+<table class="table table-light mt-3">
+    <thead class="thead-light">
+        <tr>
+            <th>clientNo</th>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Logo</th>
+            <th>Adress</th>
+            <th>Idproject</th>
+            <th>Date debut de licence</th>
+            <th>Date fin de licence</th>
+            <th>Typelicence/th>
+            <th>Regulateur</th>
+            <th>delete client</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i for clientlist; index as clientNo">
+            <td>{{clientNo+1}}</td>
+            <td>{{i.Id}}</td>
+            <td>{{i.Nom}}</td>
+            <td>{{i.Logo}}</td>
+            <td>{{i.Adress}}</td>
+            <td>{{i.Idproject}}</td>
+            <td>{{i.Datedebutlicence}}</td>
+            <td>{{i.Datefinlicence}}</td>
+            <td>{{i.Typelicence}}</td>
+            <td>{{i.Regulateur}}</td>
+            <td>
+                <button  class="btn btn-succes">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

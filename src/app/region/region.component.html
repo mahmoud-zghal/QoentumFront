@@ -1,0 +1,40 @@
+<div class="container col-md-6">
+<div class="mb-3" (ngSubmit)="onclick()">
+    <div  class="search-hero">
+        <input class="search-hero" type="text" id="search" name="search" [(ngModel)]="searchText" placeholder="search by Id or region ">
+    </div>
+<div class="mb-3">
+    <label for="">add region</label>
+    <input  type="text" class="form-control" id="regionId" name="region" [(ngModel)]="region.Id">
+  </div>
+  <button type="submit"   class="btn btn-primary">Add</button>
+</div>
+</div>
+<table class="table table-light mt-3">
+    <thead class="thead-light">
+        <tr>
+            <th>regionNo</th>
+            <th>region</th>
+            <th>continent</th>
+            <th>delete region</th>
+        </tr>
+    </thead>
+    <tbody>
+      <!--  <tr (ngSubmit)="delete(1)">
+            <td>1</td>
+            <td>region</td>
+            <td>
+                <button type="submit" class="btn btn-succes">delete</button>
+            </td>
+        </tr>-->
+        <tr *ngFor="let i for regionlist | regionPipe: searchText; index as regionNo ">
+            <td>{{regionNo +1}}</td>
+            <td>{{i}}</td>
+            <td>{{i.continent}}</td>
+           
+            <td>
+                <button  (click)="delete(regionNo)" class="btn btn-succes">delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

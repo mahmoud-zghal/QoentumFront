@@ -1,0 +1,31 @@
+<div class="container col-md-6">
+    <div class="mb-3" (ngSubmit)="onclick()">
+        <div  class="search-hero">
+            <input class="search-hero" type="text" id="search" name="search" [(ngModel)]="searchText" placeholder="search by Id or continent ">
+        </div>
+    <div class="mb-3">
+        <label for="">add continent</label>
+        <input  type="text" class="form-control" id="continent" name="continent" [(ngModel)]="continent.Id">
+      </div>
+      <button type="submit"  class="btn btn-primary">Add</button>
+    </div>
+    </div>
+    <table class="table table-light mt-3">
+        <thead class="thead-light">
+            <tr>
+                <th>continentNo</th>
+                <th>continent</th>
+                <th>delete continent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i for continentlist | continent: searchText;index as continentNo">
+                <td>{{continentNo+1}}</td>
+                <td>{{i}}</td>
+                <td>
+                    <button  (click)="delete(continentNo)" class="btn btn-succes">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
